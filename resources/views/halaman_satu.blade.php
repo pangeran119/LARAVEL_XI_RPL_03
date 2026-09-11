@@ -3,70 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda - Pangeran.Com</title>
+    <title>Software Engineering | Terminal Hub</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+
+        @keyframes assembleText {
+            to { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+        }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-r { opacity: 0; transform: translate(-250px, -150px) rotate(-45deg) scale(0.3); animation: assembleText 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards; }
+        .animate-p { opacity: 0; transform: translate(0px, 200px) rotate(90deg) scale(0.3); animation: assembleText 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; }
+        .animate-l { opacity: 0; transform: translate(250px, -150px) rotate(45deg) scale(0.3); animation: assembleText 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards; }
+        
+        .animate-ui { opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease-out 0.8s forwards; }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black">
 
-    <!-- Header / Navbar -->
-    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
+    <!-- Grid Background Effect -->
+    <div class="fixed inset-0 bg-[linear-gradient(to_right,#18181b_1px,transparent_1px),linear-gradient(to_bottom,#18181b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] -z-10"></div>
+
+    <!-- Header Navigation -->
+    <header class="w-full border-b border-zinc-800/80 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="{{ route('home') }}" class="flex items-center gap-2 font-bold text-xl tracking-tight text-white">
-                <span class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-sm font-extrabold shadow-lg shadow-indigo-500/30">P</span>
-                Pangeran.Com<span class="text-indigo-400">.</span>
-            </a>
-            
-            <nav class="flex items-center gap-1 bg-slate-900/90 p-1.5 rounded-full border border-slate-800">
-                <a href="{{ route('home') }}" class="px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-indigo-600 text-white shadow-md shadow-indigo-500/20">
-                   Beranda
-                </a>
-                <a href="{{ route('fitur') }}" class="px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 text-slate-400 hover:text-slate-200">
-                   Layanan & Fitur
-                </a>
+            <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-cyan-500 animate-pulse"></div>
+                <span class="font-mono-code font-semibold tracking-wider text-sm text-zinc-300">RPL.DEV // v1.0</span>
+            </div>
+            <nav class="flex items-center gap-2 text-xs font-mono-code">
+                <span class="px-3 py-1 rounded-md bg-zinc-800 text-cyan-400 border border-zinc-700">01. Overview</span>
+                <span class="px-3 py-1 rounded-md text-zinc-500">02. Projects</span>
             </nav>
         </div>
     </header>
 
-    <!-- Konten Utama Halaman 1 -->
-    <main class="flex-grow">
-        <section class="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center gap-12">
-            <div class="flex-1 space-y-6 text-center md:text-left">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold">
-                    <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span> Platform Masa Depan
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-6 py-12 flex-1 flex flex-col justify-center items-center text-center">
+        
+        <!-- Animated Title -->
+        <div class="mb-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-mono-code mb-6">
+                <span>SYSTEM_READY</span>
+            </div>
+            <div class="flex justify-center text-8xl sm:text-9xl font-extrabold tracking-tighter bg-gradient-to-b from-white via-zinc-200 to-zinc-600 bg-clip-text text-transparent drop-shadow-2xl">
+                <span class="inline-block animate-r">R</span>
+                <span class="inline-block animate-p">P</span>
+                <span class="inline-block animate-l">L</span>
+            </div>
+        </div>
+
+        <!-- Card Content -->
+        <div class="animate-ui w-full max-w-xl bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-cyan-950/20 text-left">
+            
+            <!-- Code Block Visual -->
+            <div class="w-full mb-6 rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950/90 font-mono-code shadow-inner">
+                <!-- Window Header -->
+                <div class="bg-zinc-900 px-4 py-2 border-b border-zinc-800 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                    </div>
+                    <span class="text-[11px] text-zinc-500">web.php — Controller</span>
                 </div>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
-                    Mengubah Baris Kode  <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">Menjadi Solusi Masa Depan.</span>
-                </h1>
-                <p class="text-slate-400 text-base sm:text-lg max-w-xl">
-                    Menghubungkan logika, kreativitas, dan teknologi modern untuk merancang serta membangun aplikasi berkualitas tinggi yang siap menjawab tantangan dunia digital. Klik tombol di bawah untuk menuju ke Halaman 2.
-                </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-2">
-                    <a href="{{ route('fitur') }}" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-semibold text-white shadow-lg shadow-indigo-600/30 transition-all text-sm flex items-center justify-center gap-2 group">
-                        Pergi ke Halaman 2 (Fitur)
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                    </a>
+                <!-- Code Snippet -->
+                <div class="p-4 text-xs sm:text-sm leading-relaxed overflow-x-auto text-zinc-300">
+                    <span class="text-pink-400">Route</span>::<span class="text-sky-400">get</span>(<span class="text-emerald-400">'/'</span>, <span class="text-amber-300">function</span> () {<br>
+                    &nbsp;&nbsp;<span class="text-purple-400">return</span> <span class="text-sky-400">view</span>(<span class="text-emerald-400">'halaman_satu'</span>);<br>
+                    });
                 </div>
             </div>
 
-            <!-- Gambar Halaman 1 -->
-            <div class="flex-1 relative w-full">
-                <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl blur-2xl opacity-25"></div>
-                <div class="relative rounded-2xl border border-slate-800 bg-slate-900/80 p-2 overflow-hidden shadow-2xl">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" alt="Dashboard" class="rounded-xl w-full object-cover h-[350px]">
-                </div>
-            </div>
-        </section>
+            <h1 class="text-2xl font-bold text-white mb-2 tracking-tight text-center sm:text-left">Software Engineering Workspace</h1>
+            <p class="text-zinc-400 text-sm leading-relaxed mb-6 text-center sm:text-left">
+                Pusat kendali arsitektur perangkat lunak, sistem logika, dan optimasi pemrosesan logika tingkat tinggi.
+            </p>
+
+            <!-- Action Button -->
+            <a href="{{ route('halaman2') }}" 
+               class="group relative inline-flex items-center justify-center w-full py-3.5 px-6 rounded-xl font-semibold text-sm bg-cyan-500 text-zinc-950 hover:bg-cyan-400 transition-all duration-200 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
+                <span>Lihat Project Showcase (Halaman 2)</span>
+                <svg class="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+        </div>
+
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-900 bg-slate-950 py-8">
-        <div class="max-w-6xl mx-auto px-6 text-center text-xs text-slate-500">
-            &copy; 2026 Pangeran.Com Inc. Dibuat dengan Laravel & Tailwind CSS.
-        </div>
+    <footer class="w-full border-t border-zinc-900 py-6 text-center text-xs font-mono-code text-zinc-600">
+        BUILD_WITH_LARAVEL_12 // TAILWIND_CSS
     </footer>
 
 </body>

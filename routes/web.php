@@ -2,12 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Route Halaman 1
 Route::get('/', function () {
     return view('halaman_satu');
-})->name('home');
+})->name('halaman1');
 
-// Route Halaman 2
-Route::get('/fitur', function () {
+Route::get('/halaman-2', function () {
     return view('halaman_dua');
-})->name('fitur');
+})->name('halaman2');
