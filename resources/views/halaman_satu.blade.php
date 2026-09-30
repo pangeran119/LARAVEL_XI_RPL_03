@@ -3,108 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Engineering | Terminal Hub</title>
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Font Plus Jakarta Sans & JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .font-mono-code { font-family: 'JetBrains Mono', monospace; }
-
-        @keyframes assembleText {
-            to { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
-        }
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-r { opacity: 0; transform: translate(-250px, -150px) rotate(-45deg) scale(0.3); animation: assembleText 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards; }
-        .animate-p { opacity: 0; transform: translate(0px, 200px) rotate(90deg) scale(0.3); animation: assembleText 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; }
-        .animate-l { opacity: 0; transform: translate(250px, -150px) rotate(45deg) scale(0.3); animation: assembleText 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards; }
-        
-        .animate-ui { opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease-out 0.8s forwards; }
-    </style>
+    <title>Kafe & Tempat Nongkrong Wonorejo</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black">
+<body class="bg-slate-900 text-slate-100 font-sans">
 
-    <!-- Grid Background Effect -->
-    <div class="fixed inset-0 bg-[linear-gradient(to_right,#18181b_1px,transparent_1px),linear-gradient(to_bottom,#18181b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] -z-10"></div>
-
-    <!-- Header Navigation -->
-    <header class="w-full border-b border-zinc-800/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-3 h-3 rounded-full bg-cyan-500 animate-pulse"></div>
-                <span class="font-mono-code font-semibold tracking-wider text-sm text-zinc-300">RPL.DEV // v1.0</span>
+    <!-- Navigasi -->
+    <nav class="border-b border-slate-800 bg-slate-900 fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
+            <a href="{{ route('kafe.satu') }}" class="flex items-center gap-3">
+                <img src="{{ asset('images/wnj.jpeg') }}" alt="Logo" class="h-8 w-auto">
+                <span class="font-bold text-lg text-amber-400">Wonorejo Spot</span>
+            </a>
+            <div class="flex gap-6 text-sm">
+                <a href="{{ route('kafe.satu') }}" class="text-amber-400 font-medium">Daftar Kafe</a>
+                <a href="{{ route('kafe.dua') }}" class="text-slate-300 hover:text-amber-400 transition">Galeri Suasana</a>
             </div>
-            <nav class="flex items-center gap-2 text-xs font-mono-code">
-                <span class="px-3 py-1 rounded-md bg-zinc-800 text-cyan-400 border border-zinc-700">01. Overview</span>
-                <span class="px-3 py-1 rounded-md text-zinc-500">02. Projects</span>
-            </nav>
+        </div>
+    </nav>
+
+    <!-- Header / Banner -->
+    <header class="pt-28 pb-12 border-b border-slate-800 bg-slate-950">
+        <div class="max-w-5xl mx-auto px-6">
+            <h1 class="text-3xl font-bold text-white mb-3">Rekomendasi Kafe & Tempat Nongkrong Wonorejo</h1>
+            <p class="text-slate-400 text-sm max-w-2xl leading-relaxed">
+                Pilihan tempat bersantai, nikmati kopi, hingga tempat main game bersama teman di kawasan Wonorejo, Pasuruan.
+            </p>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="max-w-4xl mx-auto px-6 py-12 flex-1 flex flex-col justify-center items-center text-center">
-        
-        <!-- Animated Title -->
-        <div class="mb-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-mono-code mb-6">
-                <span>SYSTEM_READY</span>
+    <!-- Content / Grid Kafe -->
+    <main class="py-12 max-w-5xl mx-auto px-6">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+            <!-- Card 1 -->
+            <div class="bg-slate-800/50 border border-slate-800 p-5 rounded-lg flex flex-col justify-between">
+                <div>
+                    <span class="text-[11px] font-semibold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">Outdoor & Sawah</span>
+                    <h3 class="text-lg font-bold text-white mt-3 mb-2">Kedai Kopi Oemah Sawah</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                        Konsep santai dengan pemandangan area persawahan yang sejuk. Cocok untuk minum kopi di sore hari.
+                    </p>
+                </div>
+                <div class="border-t border-slate-700/60 pt-3 text-[11px] text-slate-400">
+                    Lokasi: Dusun Tumpuk Sambisirah
+                </div>
             </div>
-            <div class="flex justify-center text-8xl sm:text-9xl font-extrabold tracking-tighter bg-gradient-to-b from-white via-zinc-200 to-zinc-600 bg-clip-text text-transparent drop-shadow-2xl">
-                <span class="inline-block animate-r">R</span>
-                <span class="inline-block animate-p">P</span>
-                <span class="inline-block animate-l">L</span>
+
+            <!-- Card 2 -->
+            <div class="bg-slate-800/50 border border-slate-800 p-5 rounded-lg flex flex-col justify-between">
+                <div>
+                    <span class="text-[11px] font-semibold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">Teh & Kopi</span>
+                    <h3 class="text-lg font-bold text-white mt-3 mb-2">Demi Kopi Wonorejo</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                        Menyediakan varian Demikopi, Sehatea, dan Demikriuk. Tempat luas untuk kumpul bersama komunitas.
+                    </p>
+                </div>
+                <div class="border-t border-slate-700/60 pt-3 text-[11px] text-slate-400">
+                    Lokasi: Mulyorejo Wonorejo
+                </div>
             </div>
+
+            <!-- Card 3 -->
+            <div class="bg-slate-800/50 border border-slate-800 p-5 rounded-lg flex flex-col justify-between">
+                <div>
+                    <span class="text-[11px] font-semibold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">Makanan & Minuman Ringan</span>
+                    <h3 class="text-lg font-bold text-white mt-3 mb-2">Angkringan Wonorejo</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                        Perpaduan tempat makan dan ruang santai di tepi jalan utama dengan aneka menu hidangan lokal.
+                    </p>
+                </div>
+                <div class="border-t border-slate-700/60 pt-3 text-[11px] text-slate-400">
+                    Lokasi: Jalan Utama Wonorejo
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-slate-800/50 border border-slate-800 p-5 rounded-lg flex flex-col justify-between">
+                <div>
+                    <span class="text-[11px] font-semibold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">Gaming Cafe</span>
+                    <h3 class="text-lg font-bold text-white mt-3 mb-2">CAFE MR KOPI & AL GAMING</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                        Tempat warkop/kopi yang dilengkapi fasilitas rental PS3 & PS4. Buka hingga larut malam.
+                    </p>
+                </div>
+                <div class="border-t border-slate-700/60 pt-3 text-[11px] text-slate-400">
+                    Lokasi: Alun Alun Besaran Wonorejo 
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="bg-slate-800/50 border border-slate-800 p-5 rounded-lg flex flex-col justify-between">
+                <div>
+                    <span class="text-[11px] font-semibold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">Nongkrong Hemat</span>
+                    <h3 class="text-lg font-bold text-white mt-3 mb-2">Teras Omah</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                        Tempat makan sederhana yang memasak aneka macam masakan desa.
+                    </p>
+                </div>
+                <div class="border-t border-slate-700/60 pt-3 text-[11px] text-slate-400">
+                    Lokasi: Jalan Kandangan Pakijangan
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="bg-slate-800/50 border border-slate-800 p-5 rounded-lg flex flex-col justify-between">
+                <div>
+                    <span class="text-[11px] font-semibold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">Nongki Casual</span>
+                    <h3 class="text-lg font-bold text-white mt-3 mb-2">Warung Brick</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                        Tempat nongkrong kasual dengan harga makanan dan minuman yang ramah di kantong.
+                    </p>
+                </div>
+                <div class="border-t border-slate-700/60 pt-3 text-[11px] text-slate-400">
+                    Lokasi: Jalan Utama Wonorejo
+                </div>
+            </div>
+
         </div>
 
-        <!-- Card Content -->
-        <div class="animate-ui w-full max-w-xl bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-cyan-950/20 text-left">
-            
-            <!-- Code Block Visual -->
-            <div class="w-full mb-6 rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950/90 font-mono-code shadow-inner">
-                <!-- Window Header -->
-                <div class="bg-zinc-900 px-4 py-2 border-b border-zinc-800 flex items-center justify-between">
-                    <div class="flex items-center gap-2">
-                        <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
-                        <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
-                        <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-                    </div>
-                    <span class="text-[11px] text-zinc-500">web.php — Controller</span>
-                </div>
-                <!-- Code Snippet -->
-                <div class="p-4 text-xs sm:text-sm leading-relaxed overflow-x-auto text-zinc-300">
-                    <span class="text-pink-400">Route</span>::<span class="text-sky-400">get</span>(<span class="text-emerald-400">'/'</span>, <span class="text-amber-300">function</span> () {<br>
-                    &nbsp;&nbsp;<span class="text-purple-400">return</span> <span class="text-sky-400">view</span>(<span class="text-emerald-400">'halaman_satu'</span>);<br>
-                    });
-                </div>
-            </div>
-
-            <h1 class="text-2xl font-bold text-white mb-2 tracking-tight text-center sm:text-left">Software Engineering Workspace</h1>
-            <p class="text-zinc-400 text-sm leading-relaxed mb-6 text-center sm:text-left">
-                Pusat kendali arsitektur perangkat lunak, sistem logika, dan optimasi pemrosesan logika tingkat tinggi.
-            </p>
-
-            <!-- Action Button -->
-            <a href="{{ route('halaman2') }}" 
-               class="group relative inline-flex items-center justify-center w-full py-3.5 px-6 rounded-xl font-semibold text-sm bg-cyan-500 text-zinc-950 hover:bg-cyan-400 transition-all duration-200 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-                <span>Lihat Project Showcase (Halaman 2)</span>
-                <svg class="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        <div class="mt-10 border-t border-slate-800 pt-6 flex justify-end">
+            <a href="{{ route('kafe.dua') }}" class="text-xs text-amber-400 hover:underline flex items-center gap-1">
+                Lihat Galeri Foto & Suasana &rarr;
             </a>
         </div>
-
     </main>
 
-    <!-- Footer -->
-    <footer class="w-full border-t border-zinc-900 py-6 text-center text-xs font-mono-code text-zinc-600">
-        BUILD_WITH_LARAVEL_12 // TAILWIND_CSS
+    <footer class="border-t border-slate-800 py-6 text-center text-xs text-slate-500">
+        &copy; {{ date('Y') }} Wonorejo Cafe & Drinking
     </footer>
 
 </body>

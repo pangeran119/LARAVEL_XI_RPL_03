@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('halaman_satu');
-})->name('halaman1');
+})->name('kafe.satu');
 
-Route::get('/halaman-2', function () {
+Route::get('/dua', function () {
     return view('halaman_dua');
-})->name('halaman2');
+})->name('kafe.dua');
